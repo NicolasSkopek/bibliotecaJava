@@ -1,0 +1,1 @@
+aqui em model, só deve conter o objeto INTERFACE, HERENÇA e a CONEXÃO COM O BANCO de dados pura. NÃO DEVE CONTER NENHUM OUTRO TIPO DE LOGICA COMPUTACIONAL.
