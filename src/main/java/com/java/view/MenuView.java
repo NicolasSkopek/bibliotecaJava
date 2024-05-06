@@ -18,4 +18,8 @@ public class MenuView {
         System.out.print("Escolha uma opção: ");
         return scanner.nextInt();
     }
+
+    public void mensagem(String mensagem){
+        System.out.println(mensagem);
+    }
 }

@@ -4,9 +4,11 @@ import com.java.view.MenuView;
 
 public class MenuController {
     private MenuView menuView;
+    private CadastroController cadastroController;
 
-    public MenuController(MenuView menuView) {
+    public MenuController(MenuView menuView, CadastroController cadastroController) {
         this.menuView = menuView;
+        this.cadastroController = cadastroController;
         }
 
         public void iniciar() {
@@ -15,7 +17,7 @@ public class MenuController {
                 opcao = menuView.exibirMenu();
                 switch (opcao) {
                     case 1:
-                        // Lógica para lidar com a opção 1
+                        cadastroController.CadastrarLivro();
                         break;
                     case 2:
                         // Lógica para lidar com a opção 2

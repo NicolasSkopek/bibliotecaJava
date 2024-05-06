@@ -7,7 +7,8 @@ import com.java.view.*;
 public class Main {
     public static void main(String[] args) {
         MenuView menuView = new MenuView();
-        MenuController menuController = new MenuController(menuView);
+        CadastroController cadastroController = new CadastroController(menuView);
+        MenuController menuController = new MenuController(menuView, cadastroController);
         menuController.iniciar();
     }
 }

@@ -5,10 +5,10 @@ public class LivroModel extends Entidade{
     private String titulo;
     private String autor;
     private String editora;
-    private int numPaginas;
+    private String numPaginas;
     private String genero;
     
-    public LivroModel(String titulo, String autor,String editora, int numPaginas,String genero) {
+    public LivroModel(String titulo, String autor,String editora, String numPaginas,String genero) {
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
@@ -16,7 +16,7 @@ public class LivroModel extends Entidade{
         this.genero = genero;
     }
 
-    public LivroModel(int id,String titulo, String autor,String editora, int numPaginas,String genero) {
+    public LivroModel(int id,String titulo, String autor,String editora, String numPaginas,String genero) {
         super.setId(id);
         this.titulo = titulo;
         this.autor = autor;
@@ -43,10 +43,10 @@ public class LivroModel extends Entidade{
     public void setEditora(String editora) {
         this.editora = editora;
     }
-    public int getNumPaginas() {
+    public String getNumPaginas() {
         return numPaginas;
     }
-    public void setNumPaginas(int numPaginas) {
+    public void setNumPaginas(String numPaginas) {
         this.numPaginas = numPaginas;
     }
     public String getGenero() {
