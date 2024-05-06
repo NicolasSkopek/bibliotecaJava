@@ -1,4 +1,4 @@
-package com.java.banco;
+package com.java.main;
 
 import com.java.controller.*;
 import com.java.model.*;
