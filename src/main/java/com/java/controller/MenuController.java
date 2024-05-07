@@ -5,10 +5,16 @@ import com.java.view.MenuView;
 public class MenuController {
     private MenuView menuView;
     private CadastroController cadastroController;
+    private ListarController listarController;
+    private EmprestimoController emprestimoController;
+    private DevolverController devolverController;
 
-    public MenuController(MenuView menuView, CadastroController cadastroController) {
+    public MenuController(MenuView menuView, CadastroController cadastroController,ListarController listarController,EmprestimoController emprestimoController, DevolverController devolverController){
         this.menuView = menuView;
         this.cadastroController = cadastroController;
+        this.listarController = listarController;
+        this.emprestimoController = emprestimoController;
+        this.devolverController = devolverController;
         }
 
         public void iniciar() {
@@ -20,20 +26,20 @@ public class MenuController {
                         cadastroController.CadastrarLivro();
                         break;
                     case 2:
-                        // Lógica para lidar com a opção 2
+                        listarController.ListarLivros();
                         break;
                     case 3:
-                        //Lógica para lidar com a opção 3
+                        emprestimoController.EmprestimoLivro();
                         break;
                     case 4:
-                        //Lógica para lidar com a opção 4
+                        devolverController.DevolverLivro();
                         break;
-                    case 5:
+                    case 0:
                         System.out.println("Saindo...");
                         break;
                     default:
                         System.out.println("Opção inválida!");
                 }
-            } while (opcao != 5);
+            } while (opcao != 0);
         }
 }
