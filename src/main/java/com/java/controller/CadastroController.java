@@ -19,7 +19,7 @@ public class CadastroController {
     }
 
     public void CadastrarLivro(){
-        menuView.mensagem("===== Cadastrando Novo Livro =====");
+        menuView.mensagem("===== Cadastrando Novo Livro =====\n");
         menuView.mensagem("Digite o título do livro:");
         String titulo = scanner.nextLine();
         menuView.mensagem("Digite o nome do autor:");

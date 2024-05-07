@@ -38,7 +38,8 @@ public class TabelasModel {
                 "autor VARCHAR(50) NOT NULL," +
                 "editora VARCHAR(50) NOT NULL," +
                 "paginas VARCHAR(4) NOT NULL," +
-                "genero VARCHAR(50) NOT NULL" +
+                "genero VARCHAR(50) NOT NULL," +
+                "flag_disponibilidade INTEGER" +
                 ")");
         System.out.println("Tabela cadastrar_livro criada com sucesso.");
     }
@@ -47,11 +48,11 @@ public class TabelasModel {
         conexao.createStatement().executeUpdate(
                 "CREATE TABLE emprestar_livro (" +
                 "id_emprestimo SERIAL PRIMARY KEY," +
+                "id_livro_fk INT NOT NULL," +
                 "titulo_livro VARCHAR(50) NOT NULL," +
                 "cliente VARCHAR(50) NOT NULL," +
                 "contato VARCHAR(13) NOT NULL," +
-                "data_retirada DATE NOT NULL," +
-                "previsao_entrega DATE NOT NULL" +
+                "FOREIGN KEY (id_livro_fk) REFERENCES cadastrar_livro(id_livro)"+
                 ")");
         System.out.println("Tabela emprestimo_livro criada com sucesso.");
     }

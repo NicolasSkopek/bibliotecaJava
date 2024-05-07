@@ -9,7 +9,7 @@ public class MenuView {
     }
 
     public int exibirMenu() {
-        System.out.println("===== MENU PRINCIPAL =====");
+        System.out.println("\n===== MENU PRINCIPAL =====");
         System.out.println("1. Cadastrar livro");
         System.out.println("2. Listar livros");
         System.out.println("3. Excluir livro");
@@ -21,6 +21,6 @@ public class MenuView {
     }
 
     public void mensagem(String mensagem){
-        System.out.println(mensagem);
+        System.out.print(mensagem);
     }
 }

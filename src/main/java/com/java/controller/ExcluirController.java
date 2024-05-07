@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import java.sql.Connection;
 
-
 import com.java.config.ConexaoBanco;
 import com.java.model.LivroModel;
 import com.java.view.MenuView;
@@ -18,7 +17,8 @@ public class ExcluirController {
         this.menuView = menuView;
     }
     public void ExcluirLivro(){
-        menuView.mensagem("==== Excluindo Livro ====");
+    
+        menuView.mensagem("==== Excluindo Livro ====\n");
         menuView.mensagem("Digite o Id do livro que deseja Remover da lista:");
         int remov = scanner.nextInt();
         try (Connection conexao = ConexaoBanco.obterConexao()) {

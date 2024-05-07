@@ -1,1 +1,0 @@
-No controller é onde o usuario vai entrar  com os dados, ou seja é onde o cliente vai acrescentar as informações para o banco de dados
