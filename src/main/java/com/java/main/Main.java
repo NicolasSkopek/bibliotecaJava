@@ -27,9 +27,10 @@ public class Main {
         MenuView menuView = new MenuView();
         CadastroController cadastroController = new CadastroController(menuView);
         ListarController listarController = new ListarController(menuView);
+        ExcluirController excluirController = new ExcluirController(menuView);
         EmprestimoController emprestimoController = new EmprestimoController(menuView);
         DevolverController devolverController = new DevolverController(menuView);
-        MenuController menuController = new MenuController(menuView, cadastroController,listarController,emprestimoController,devolverController);
+        MenuController menuController = new MenuController(menuView, cadastroController,listarController, excluirController,emprestimoController,devolverController);
         menuController.iniciar();
         }
     }   
