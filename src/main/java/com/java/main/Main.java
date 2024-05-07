@@ -14,7 +14,7 @@ public class Main {
         conexao = ConexaoBanco.obterConexao(); // conexão com o banco
         if (conexao != null) {
             System.out.println("Conexão bem-sucedida!");
-            CriarTabelas.criarTabelas(conexao); // cria as tabelas
+            TabelasModel.criarTabelas(conexao); // cria as tabelas
         } else {
             System.out.println("Falha ao conectar ao banco de dados.");
         }
