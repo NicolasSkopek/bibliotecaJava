@@ -1,10 +1,10 @@
 package com.java.model;
 
-public class Usuario{
+public class UsuarioModel {
     String nome;
     String telefone;
 
-    public Usuario(String nome,String telefone){
+    public UsuarioModel(String nome,String telefone){
         this.nome = nome;
         this.telefone = telefone;
     }

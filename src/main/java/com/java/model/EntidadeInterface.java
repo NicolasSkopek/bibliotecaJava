@@ -1,6 +1,6 @@
 package com.java.model;
 
-public abstract class Entidade {
+public abstract class EntidadeInterface {
     private int id;
 
     public int getId() {

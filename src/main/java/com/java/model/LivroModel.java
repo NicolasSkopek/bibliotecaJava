@@ -1,6 +1,6 @@
 package com.java.model;
 
-public class LivroModel extends Entidade{
+public class LivroModel extends EntidadeInterface{
 
     private String titulo;
     private String autor;
