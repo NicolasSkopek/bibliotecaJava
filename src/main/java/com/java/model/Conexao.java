@@ -13,17 +13,36 @@ public class Conexao {
 
         try {
             Class.forName("org.postgresql.Driver");
-            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/nomeDoBanco", "username", "password"); // username, por padrão, é postgres. A senha é aquela que você cadastra assim que baixa o PostgreSQL ou pgAdmin4
+            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/teste", "postgres", "983632"); // username, por padrão, é postgres. A senha é aquela que você cadastra assim que baixa o PostgreSQL ou pgAdmin4
 
-            //(EXEMPLO)
-            ResultSet rsCliente = conexao.createStatement().executeQuery("SELECT * FROM cadastrar_livro"); // De exemplo, estamos usando o comando SELECT para exibir todas colunas da tabela 'cadastrar_livro'. Os dados que exibimos foram inseridos direto no pgAdmin4 apenas para teste, mas no trabalho final, deverão ser inseridas pelo código Java. EXEMPLO: .createStatement().executeQuery("INSERT INTO nomeDaTabela (coluna1, coluna2) VALUES (value1, value2)"); :)
-            while (rsCliente.next()) {
+            //criação do banco de dados
+            conexao.createStatement().executeUpdate("CREATE TABLE cadastrar_livro (" +
+             "id_cadastrar_livro  INT NOT NULL  PRIMARY KEY," +
+             "nome VARCHAR(50) NOT NULL," +
+             "autor VARCHAR(50) NOT NULL," +
+             "paginas INT NOT NULL" +
+            ")");
+            conexao.createStatement().executeUpdate("CREATE TABLE listar_livros (" +
+            "id_listar_livros INT NOT NULL PRIMARY KEY," +
+            "copias INT NOT NULL," +
+            "id_livro INT NOT NULL," +
+            "FOREIGN KEY (id_livro) REFERENCES cadastrar_livro(id_cadastrar_livro)" +
+            ")");
+            conexao.createStatement().executeUpdate("CREATE TABLE emprestar_livro (" +
+                "id_emprestar_livro INT PRIMARY KEY," +
+                "nome VARCHAR(50) NOT NULL," +
+                "cliente VARCHAR(50) NOT NULL," +
+                "dataAquisicao DATE NOT NULL" +
+            ")");
+            conexao.createStatement().executeUpdate("CREATE TABLE devolver_livro (" +
+                "id_devolver_livro INT PRIMARY KEY," +
+                "dataDevolucao DATE NOT NULL," +
+                "id_emprestar_livro INT NOT NULL," +
+                "cliente VARCHAR(50) NOT NULL," +
+                "FOREIGN KEY (id_emprestar_livro) REFERENCES emprestar_livro(id_emprestar_livro)" +
+            ")");
 
-                //(EXEMPLO)
-                System.out.println("Nome: " + rsCliente.getString("nome")); // usamos o While para exibir todos. A condição dentro do While faz com que, assim que um elemento da tabela é exibido (no caso, o nome) ele pula para o próximo, até não haver mais elementos a serem exibidos. 
-                // IMPORTANTE: Baixe as 4 primeiras extensões quando você pesquisa 'Spring' na aba de extensões do VSCode.
-                // Tenha certeza de que a tabela esteja criada no pgAdmin4.
-            }
+
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver do banco de dados não localizado.");
         } catch (SQLException ex) {
