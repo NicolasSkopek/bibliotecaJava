@@ -53,7 +53,7 @@ public class TabelasModel {
                 "data_retirada DATE NOT NULL," +
                 "previsao_entrega DATE NOT NULL" +
                 ")");
-        System.out.println("Tabela emprestar_livro criada com sucesso.");
+        System.out.println("Tabela emprestimo_livro criada com sucesso.");
     }
 
 }

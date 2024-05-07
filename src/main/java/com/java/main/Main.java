@@ -3,6 +3,7 @@ package com.java.main;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.java.config.ConexaoBanco;
 import com.java.controller.*;
 import com.java.model.*;
 import com.java.view.*;
@@ -21,7 +22,7 @@ public class Main {
     } catch (SQLException ex) {
         System.out.println("Ocorreu um problema: " + ex.getMessage());
     } finally {
-      ConexaoBanco.fecharConexao(); // fecha conexão
+        ConexaoBanco.fecharConexao(); // fecha conexão
     }   
         MenuView menuView = new MenuView();
         CadastroController cadastroController = new CadastroController(menuView);
