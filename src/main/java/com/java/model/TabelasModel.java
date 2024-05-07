@@ -33,7 +33,7 @@ public class TabelasModel {
     private static void criarTabelaCadastrarLivro(Connection conexao) throws SQLException {
         conexao.createStatement().executeUpdate(
                 "CREATE TABLE cadastrar_livro (" +
-                "id_livro  INTEGER NOT NULL  PRIMARY KEY," +
+                "id_livro  SERIAL NOT NULL  PRIMARY KEY," +
                 "titulo VARCHAR(50) NOT NULL," +
                 "autor VARCHAR(50) NOT NULL," +
                 "editora VARCHAR(50) NOT NULL," +
@@ -46,7 +46,7 @@ public class TabelasModel {
     private static void criarTabelaEmprestimorLivro(Connection conexao) throws SQLException {
         conexao.createStatement().executeUpdate(
                 "CREATE TABLE emprestar_livro (" +
-                "id_emprestimo INTEGER PRIMARY KEY," +
+                "id_emprestimo SERIAL PRIMARY KEY," +
                 "titulo_livro VARCHAR(50) NOT NULL," +
                 "cliente VARCHAR(50) NOT NULL," +
                 "contato VARCHAR(13) NOT NULL," +
