@@ -12,7 +12,7 @@ public class TabelasModel {
             ResultSet resultSet = metaData.getTables(null, null, "cadastrar_livro", null);
             
             if (!resultSet.next()) {
-                criarTabelaCadastrarLivro(conexao);  // tabela cadastrar_livro não existe, então podemos criá-la
+                criarTabelaCadastrarLivro(conexao);
             } else {
                 System.out.println("Tabela cadastrar_livro já existe.");
             }
@@ -20,7 +20,7 @@ public class TabelasModel {
             resultSet = metaData.getTables(null, null, "empréstimo_livro", null);
             
             if (!resultSet.next()) {
-                criarTabelaEmprestimorLivro(conexao); // tabela emprestar_livro não existe, então podemos criá-la
+                criarTabelaEmprestimorLivro(conexao);
             } else {
                 System.out.println("Tabela emprestar_livro já existe.");
             }

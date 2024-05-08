@@ -24,7 +24,6 @@ public class ListarController {
             String sql = "SELECT * FROM cadastrar_livro";
             ResultSet resultado = declaracao.executeQuery(sql);
 
-            // Exibe os dados dos livros
             while (resultado.next()) {
                 int id = resultado.getInt("id_livro");
                 String titulo = resultado.getString("titulo");
