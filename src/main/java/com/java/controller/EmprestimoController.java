@@ -48,10 +48,10 @@ public class EmprestimoController {
                     LivroModel livroModel = new LivroModel(disponibilidade);
                     livroModel.atualizarDisponibilidade_indsp(conexao,idLivro);
                 }else{
-                    menuView.mensagem("O livro não está disponível para empréstimo.");
+                    menuView.mensagem("O livro não está disponível para empréstimo.\n");
                 }
             } else {
-                menuView.mensagem("Nenhum livro encontrado com o ID fornecido.");
+                menuView.mensagem("Nenhum livro encontrado com o ID fornecido.\n");
             }
             } catch (SQLException e) {
                 e.printStackTrace();
