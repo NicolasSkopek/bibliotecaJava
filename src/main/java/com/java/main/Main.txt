@@ -1,1 +1,0 @@
-É onde deve ficar o projeto principal do trabalho, é onde as chamadas de funções devem ser feitas.

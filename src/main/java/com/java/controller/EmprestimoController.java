@@ -32,7 +32,7 @@ public class EmprestimoController {
 
         EmprestimoModel novoEmprestimo = new EmprestimoModel(idLivro, titulo, nomeCliente, telefone);
         try (Connection conexao = ConexaoBanco.obterConexao()) {
-            String retorno = cadastroBD(novoEmprestimo, conexao);
+            String retorno = emprestimoBD(novoEmprestimo, conexao);
             menuView.mensagem(retorno);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,9 +40,9 @@ public class EmprestimoController {
         
     } 
     
-    public String cadastroBD(EmprestimoModel novoEmprestimo, Connection conexao) {
+    public String emprestimoBD(EmprestimoModel novoEmprestimo, Connection conexao) {
         try {
-            String sql = "INSERT INTO emprestar_livro (id_livro_fk, titulo, cliente, contato) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO emprestar_livro (id_livro_fk, titulo_livro, cliente, contato) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, novoEmprestimo.getIdLivro());
             preparedStatement.setString(2, novoEmprestimo.getTitulo());

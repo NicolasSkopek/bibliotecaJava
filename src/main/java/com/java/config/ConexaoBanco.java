@@ -12,7 +12,7 @@ public class ConexaoBanco {
         if (conexao == null || conexao.isClosed()) {
             try {
                 Class.forName("org.postgresql.Driver");
-                conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1");
+                conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "admin");
             } catch (ClassNotFoundException ex) {
                 System.out.println("Driver do banco de dados não localizado.");
             } catch (SQLException ex) {
