@@ -1,12 +1,17 @@
 package com.java.model;
 
-public class LivroModel{
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class LivroModel implements DisponibilidadeInterface{
 
     private String titulo;
     private String autor;
     private String editora;
     private String numPaginas;
     private String genero;
+    private int disponivel;
     
     public LivroModel(String titulo, String autor,String editora, String numPaginas,String genero) {
         this.titulo = titulo;
@@ -15,7 +20,10 @@ public class LivroModel{
         this.numPaginas = numPaginas;
         this.genero = genero;
     }
-
+    
+    public LivroModel(int disponivel){
+        this.disponivel = disponivel;
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -45,5 +53,25 @@ public class LivroModel{
     }
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+    @Override
+    public int verificadisponibilidade() {
+        return disponivel;
+    }
+        public void atualizarDisponibilidade_indsp(Connection conexao, int idLivro) throws SQLException {
+        String sql = "UPDATE cadastrar_livro SET flag_disponibilidade = ? WHERE id_livro = ?";
+        try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(2, idLivro);
+            preparedStatement.executeUpdate();
+        }
+    }
+    public void atualizarDisponibilidade_dsp(Connection conexao, int id) throws SQLException {
+        String sql = "UPDATE cadastrar_livro SET flag_disponibilidade = ? WHERE id_livro = ?";
+        try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+            preparedStatement.setInt(1, 0);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+        }
     }
 }

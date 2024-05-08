@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.java.config.ConexaoBanco;
+import com.java.model.LivroModel;
 import com.java.view.MenuView;
 
 public class DevolverController {
@@ -37,13 +38,30 @@ public class DevolverController {
     
                 menuView.mensagem("\nID: " + id + " | Título: " + titulo + " | Autor: " + autor + " | Editora: " + editora + " | Páginas: " + paginas + " | Genero: " + genero);
     
-                menuView.mensagem("Deseja devolver este livro?:(S/N)");
+                menuView.mensagem("\nDeseja devolver este livro?:(S/N)");
                 scanner.nextLine();
                 String validacao = scanner.nextLine();
 
                 if(validacao.equals("S") || validacao.equals("s")){
-                    String retorno = devololucaoBD(conexao,Dlivro);
-                    menuView.mensagem(retorno);
+
+
+                    conexao = ConexaoBanco.obterConexao();
+                    sql = "SELECT * FROM cadastrar_livro WHERE id_livro = ?";
+                    preparedStatement = conexao.prepareStatement(sql);
+                    preparedStatement.setInt(1, id);
+                    resultado = preparedStatement.executeQuery();
+            
+                    if (resultado.next()) {
+                        int disponibilidade = resultado.getInt("flag_disponibilidade");
+                        if(disponibilidade==1){
+                            String retorno = devololucaoBD(conexao,Dlivro);
+                            menuView.mensagem(retorno); 
+                            LivroModel livroModel = new LivroModel(disponibilidade);
+                            livroModel.atualizarDisponibilidade_dsp(conexao,id);
+                        }else{
+                            menuView.mensagem("O livro ainda não foi emprestado.");
+                        }
+                    } 
                 }else{
                     menuView.mensagem("Operação cancelada!");
                 }
