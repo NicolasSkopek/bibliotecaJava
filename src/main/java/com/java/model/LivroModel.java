@@ -1,6 +1,6 @@
 package com.java.model;
 
-public class LivroModel extends EntidadeInterface{
+public class LivroModel{
 
     private String titulo;
     private String autor;
@@ -9,15 +9,6 @@ public class LivroModel extends EntidadeInterface{
     private String genero;
     
     public LivroModel(String titulo, String autor,String editora, String numPaginas,String genero) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.editora = editora;
-        this.numPaginas = numPaginas;
-        this.genero = genero;
-    }
-
-    public LivroModel(int id,String titulo, String autor,String editora, String numPaginas,String genero) {
-        super.setId(id);
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;

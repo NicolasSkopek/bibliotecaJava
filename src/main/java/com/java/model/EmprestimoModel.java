@@ -1,12 +1,12 @@
 package com.java.model;
 
-public class EmprestimoModel extends EntidadeInterface{
+public class EmprestimoModel{
 
     private int idLivro;
     private String titulo;
     private String nomeCliente;
     private String contatoCliente;
-  
+
     public EmprestimoModel(int idLivro, String titulo, String nomeCliente, String contatoCliente) {
         this.idLivro = idLivro;
         this.titulo = titulo;
@@ -46,5 +46,4 @@ public class EmprestimoModel extends EntidadeInterface{
         this.contatoCliente = contatoCliente;
     }
 
-   
 }
