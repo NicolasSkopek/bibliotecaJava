@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.sql.Connection;
 
 import com.java.config.ConexaoBanco;
-import com.java.model.LivroModel;
 import com.java.view.MenuView;
 
 public class ExcluirController {

@@ -7,7 +7,6 @@ import java.sql.Connection;
 
 import com.java.config.ConexaoBanco;
 import com.java.model.EmprestimoModel;
-import com.java.model.LivroModel;
 import com.java.view.MenuView;
 
 public class EmprestimoController {
@@ -31,7 +30,7 @@ public class EmprestimoController {
         menuView.mensagem("Digite o número de telefone do cliente: ");
         String telefone = scanner.nextLine();
 
-        EmprestimoModel novoEmprestimo = new EmprestimoModel(idLivro, titulo, nomeCliente, nomeCliente);
+        EmprestimoModel novoEmprestimo = new EmprestimoModel(idLivro, titulo, nomeCliente, telefone);
         try (Connection conexao = ConexaoBanco.obterConexao()) {
             String retorno = cadastroBD(novoEmprestimo, conexao);
             menuView.mensagem(retorno);
